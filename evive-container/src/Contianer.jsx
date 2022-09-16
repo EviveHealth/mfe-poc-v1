@@ -2,7 +2,7 @@ import React from 'react';
 
 import Dashboard from 'DashboardRemote/dashboard'
 import Callouts from 'CalloutsRemote/callouts'
-// import Benefits from 'BenefitsRemote/benefits'
+import Benefits from 'BenefitsRemote/benefits'
 import CurrentStatus from 'CurrentStatusRemote/currentStatus'
 
 export const Container = () => (
@@ -10,7 +10,7 @@ export const Container = () => (
 	<div>Container</div>
 		<Dashboard />
 		<Callouts />
-		{/*<Benefits />*/}
+		<Benefits />
 		<CurrentStatus />
 	</div>
 )

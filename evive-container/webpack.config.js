@@ -39,7 +39,7 @@ module.exports = (env) => ({
 			remotes: {
 				DashboardRemote: 'Dashboard@http://localhost:8081/remoteEntry.js',
 				CalloutsRemote: 'Callouts@http://localhost:8082/remoteEntry.js',
-				// BenefitsRemote: 'Benefits@http://localhost:8083/remoteEntry.js',
+				BenefitsRemote: 'Benefits@http://localhost:8083/remoteEntry.js',
 				CurrentStatusRemote: 'CurrentStatus@http://localhost:8084/remoteEntry.js',
 			},
 			shared: {
