@@ -4,5 +4,8 @@ import {Button} from "@evive/ui-kit";
 import "./app.css";
 
 export const App = () => (
-	<Button>Hello UiKit</Button>
+	<div>
+		<Button>Hello UiKit</Button>
+		<img src="/assets/Callouts.jpeg" alt='Callouts' />
+	</div>
 )
