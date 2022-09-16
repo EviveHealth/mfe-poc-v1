@@ -16,7 +16,7 @@ module.exports = (env) => ({
 		path: path.resolve(
 			__dirname, 'dist',
 		),
-		publicPath: '/',
+		publicPath: "auto",
 		clean: true,
 	},
 	resolve: {
@@ -37,7 +37,7 @@ module.exports = (env) => ({
 			name: 'dashboard',
 			filename: "remoteEntry.js",
 			exposes: {
-				'./DashboardIndex': './src/index.js'
+				'./dashboard': './src/Dashboard.js'
 			},
 			// remotes: {
 			// 	app1: 'app1@http://localhost:3001/remoteEntry.js',
@@ -75,7 +75,7 @@ module.exports = (env) => ({
 	devServer: {
 		host: 'localhost',
 		historyApiFallback: true,
-		open: true,
+		open: false,
 		port: 8081,
 		// proxy: {
 		// 	'/irhythm/api': {

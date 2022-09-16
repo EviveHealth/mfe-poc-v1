@@ -17,7 +17,7 @@ module.exports = (env) => ({
 		path: path.resolve(
 			__dirname, 'dist',
 		),
-		publicPath: '/',
+		publicPath: "auto",
 		clean: true,
 	},
 	resolve: {
@@ -37,7 +37,7 @@ module.exports = (env) => ({
 		new ModuleFederationPlugin({
 			name: 'container',
 			remotes: {
-				Dashboard: 'DashboardIndex@http://localhost:8081/remoteEntry.js',
+				dashboard: 'dashboard@http://localhost:8081/remoteEntry.js',
 			},
 			shared: {
 				react: {
@@ -72,7 +72,7 @@ module.exports = (env) => ({
 	devServer: {
 		host: 'localhost',
 		historyApiFallback: true,
-		open: true,
+		open: false,
 		port: 8080,
 		// proxy: {
 		// 	'/irhythm/api': {

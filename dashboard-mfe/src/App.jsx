@@ -1,13 +1,14 @@
 import React from 'react';
-import {Button} from "@evive/ui-kit";
+// import ReactDOM from 'react-dom/client'; // React 18
+import ReactDOM from 'react-dom';
 
-import {Dashboard} from "./Dashboard";
+import '@evive/ui-kit/dist/index.css';
+import Dashboard from "./Dashboard";
 
-import "./app.css";
 
-export const App = () => (
-	<div>
-		<Button>Hello UiKit</Button>
+ReactDOM.render(
+	<React.StrictMode>
 		<Dashboard />
-	</div>
-)
+	</React.StrictMode>,
+	document.getElementById('root'),
+);
