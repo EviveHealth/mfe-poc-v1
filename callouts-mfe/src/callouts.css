@@ -1,0 +1,16 @@
+.callouts-header {
+    color: black;
+}
+
+.callouts-content {
+    display: flex;
+}
+
+.callouts-tips {
+    flex: 1;
+    color: red;
+}
+
+.callouts-image {
+    width: 1000px;
+}
