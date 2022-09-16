@@ -1,7 +1,7 @@
 import React, {useCallback, useEffect, useState} from 'react';
 
 import Dashboard from 'DashboardRemote/dashboard'
-import {PageLayout, SIZE, TextHeader} from "@evive/ui-kit";
+import {FullPageLoader, PageLayout, SIZE, TextHeader} from "@evive/ui-kit";
 
 import './container.css';
 import {useAuth0} from "@auth0/auth0-react";
@@ -74,13 +74,17 @@ export const Container = () => {
 		</div>
 	)
 
-	console.log('TOKEN', auth0Token);
+	if(!auth0Token) {
+		return <FullPageLoader />
+	}
+
+	console.log('CONTAINER TOKEN', auth0Token);
 	return (
 		<div>
 			{getUserBar()}
 			<PageLayout>
 				<div>Container</div>
-				<Dashboard />
+				<Dashboard auth0Token={auth0Token} />
 			</PageLayout>
 		</div>
 	)
