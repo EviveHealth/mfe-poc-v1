@@ -1,0 +1,12 @@
+.container-user-bar {
+    background: white;
+    border: 1px solid grey;
+    height: 5rem;
+    padding-top: 2rem;
+    margin-bottom: 2rem;
+}
+
+.container-user-bar-inner {
+    display: flex;
+    justify-content: space-between;
+}
