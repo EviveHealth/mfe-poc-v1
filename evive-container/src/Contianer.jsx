@@ -1,6 +1,6 @@
 import React from 'react';
 
-import Dashboard from 'dashboard/dashboard'
+import Dashboard from 'DashboardRemote/dashboard'
 
 export const Container = () => (
 	<div>

@@ -34,7 +34,7 @@ module.exports = (env) => ({
 	// },
 	plugins: [
 		new ModuleFederationPlugin({
-			name: 'dashboard',
+			name: 'Dashboard',
 			filename: "remoteEntry.js",
 			exposes: {
 				'./dashboard': './src/Dashboard.js'
