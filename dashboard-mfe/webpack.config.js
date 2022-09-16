@@ -50,19 +50,22 @@ module.exports = (env) => ({
 		// 		to: 'assets',
 		// 	}],
 		// }),
-		new ModuleFederationPlugin({
-			name: 'container',
-			filename: "remoteEntry.js",
-			remotes: {
-				Dashboard: 'dashboard@http://localhost:8081/remoteEntry.js',
-			},
+			new ModuleFederationPlugin({
+				name: 'dashboard',
+				filename: "remoteEntry.js",
+				exposes: {
+					'./dashboard': './src/index.js'
+				}
+				// remotes: {
+				// 	app1: 'app1@http://localhost:3001/remoteEntry.js',
+				// },
 		}),
 	],
 	devServer: {
 		host: 'localhost',
 		historyApiFallback: true,
 		open: true,
-		port: 8080,
+		port: 8081,
 		// proxy: {
 		// 	'/irhythm/api': {
 		// 		target: 'https://irhythm.dev.myevive.me',

@@ -1,8 +1,7 @@
 import React from 'react';
 import {Button} from "@evive/ui-kit";
 
-import Dashboard from "Dashboard/dashboard";
-
+import {Dashboard} from "./Dashboard";
 
 import "./app.css";
 
