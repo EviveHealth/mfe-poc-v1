@@ -53,6 +53,10 @@ module.exports = (env) => ({
 					singleton: true,
 					requiredVersion: deps["react-dom"],
 				},
+				"@evive/ui-kit": {
+					singleton: true,
+					requiredVersion: deps["@evive/ui-kit"],
+				},
 			},
 		}),
 		new HtmlWebpackPlugin({
@@ -79,28 +83,29 @@ module.exports = (env) => ({
 		historyApiFallback: true,
 		open: false,
 		port: 8081,
-		// proxy: {
-		// 	'/irhythm/api': {
-		// 		target: 'https://irhythm.dev.myevive.me',
-		// 		secure: true,
-		// 		changeOrigin: false,
-		// 		headers: {
-		// 			Connection: 'keep-alive',
-		// 			Host: 'irhythm.dev.myevive.me',
-		// 		},
-		// 		bypass(
-		// 			req, res, proxyOptions,
-		// 		) {
-		// 			console.log(
-		// 				'PROXY', req.method, req.url,
-		// 			);
-		// 			// if (req.headers.accept.indexOf('html') !== -1) {
-		// 			//   console.log('Skipping proxy for browser request.');
-		// 			//   return '/index.html';
-		// 			// }
-		// 		},
-		// 	},
-		// },
+		proxy: {
+			'/planchoice/api': {
+				target: 'https://pc.dev.myevive.me',
+				secure: true,
+				changeOrigin: false,
+				headers: {
+					Connection: 'keep-alive',
+					Host: 'pc.dev.myevive.me',
+				},
+				bypass(
+					req, res, proxyOptions,
+				) {
+					console.log(
+						'PROXY', req.method, req.url,
+					);
+					// if (req.headers.accept.indexOf('html') !== -1) {
+					//   console.log('Skipping proxy for browser request.');
+					//   return '/index.html';
+					// }
+				},
+			},
+			hot: true,
+		},
 	},
 	// optimization: {
 	// 	minimize: true, // To turn on CSS optimizer in dev

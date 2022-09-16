@@ -6,13 +6,16 @@ import '@evive/ui-kit/dist/index.css';
 
 import {Container} from "./Contianer";
 import Auth0Wrapper from "./Auth0Wrapper";
+import {UseApiProvider} from "@evive/ui-kit";
 
 import './app.css'
 
 ReactDOM.render(
 	<React.StrictMode>
 		<Auth0Wrapper>
-			<Container />
+			<UseApiProvider>
+				<Container />
+			</UseApiProvider>
 		</Auth0Wrapper>
 	</React.StrictMode>,
 	document.getElementById('root'),

@@ -1,7 +1,7 @@
 import React, {useCallback, useEffect, useState} from 'react';
 
 import Dashboard from 'DashboardRemote/dashboard'
-import {FullPageLoader, PageLayout, SIZE, TextHeader} from "@evive/ui-kit";
+import {FullPageLoader, PageLayout, SIZE, TextHeader, UseApi} from "@evive/ui-kit";
 
 import './container.css';
 import {useAuth0} from "@auth0/auth0-react";
@@ -11,6 +11,10 @@ export const Container = () => {
 	const {
 		isAuthenticated, loginWithRedirect, isLoading, error, getAccessTokenSilently
 	} = useAuth0();
+
+	const {
+		setHeaderParams,
+	} = UseApi();
 
 	const [auth0Token, setAuth0Token] = useState("");
 
@@ -50,6 +54,9 @@ export const Container = () => {
 
 			// api.defaults.headers.common.Authorization = `Bearer ${token}`;
 			setAuth0Token(token);
+			setHeaderParams({
+				authorization: `Bearer ${token}`,
+			});
 		}
 	};
 

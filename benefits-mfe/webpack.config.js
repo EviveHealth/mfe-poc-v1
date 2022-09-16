@@ -51,6 +51,10 @@ module.exports = (env) => ({
 					singleton: true,
 					requiredVersion: deps["react-dom"],
 				},
+				"@evive/ui-kit": {
+					singleton: true,
+					requiredVersion: deps["@evive/ui-kit"],
+				},
 			},
 		}),
 		new HtmlWebpackPlugin({
