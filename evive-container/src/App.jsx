@@ -5,12 +5,15 @@ import ReactDOM from 'react-dom';
 import '@evive/ui-kit/dist/index.css';
 
 import {Container} from "./Contianer";
+import Auth0Wrapper from "./Auth0Wrapper";
 
 import './app.css'
 
 ReactDOM.render(
 	<React.StrictMode>
-		<Container />
+		<Auth0Wrapper>
+			<Container />
+		</Auth0Wrapper>
 	</React.StrictMode>,
 	document.getElementById('root'),
 );
