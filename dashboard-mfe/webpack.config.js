@@ -6,6 +6,7 @@ const ModuleFederationPlugin = require("webpack/lib/container/ModuleFederationPl
 
 const path = require('path');
 
+const deps = require("./package.json").dependencies;
 module.exports = (env) => ({
 	mode: 'development',
 	entry: './src/index.js',
@@ -32,6 +33,26 @@ module.exports = (env) => ({
 	//   ],
 	// },
 	plugins: [
+		new ModuleFederationPlugin({
+			name: 'dashboard',
+			filename: "remoteEntry.js",
+			exposes: {
+				'./DashboardIndex': './src/index.js'
+			},
+			// remotes: {
+			// 	app1: 'app1@http://localhost:3001/remoteEntry.js',
+			// },
+			shared: {
+				react: {
+					singleton: true,
+					requiredVersion: deps.react,
+				},
+				"react-dom": {
+					singleton: true,
+					requiredVersion: deps["react-dom"],
+				},
+			},
+		}),
 		new HtmlWebpackPlugin({
 			template: path.join(
 				__dirname, 'public', 'index.html',
@@ -50,16 +71,6 @@ module.exports = (env) => ({
 		// 		to: 'assets',
 		// 	}],
 		// }),
-			new ModuleFederationPlugin({
-				name: 'dashboard',
-				filename: "remoteEntry.js",
-				exposes: {
-					'./dashboard': './src/index.js'
-				}
-				// remotes: {
-				// 	app1: 'app1@http://localhost:3001/remoteEntry.js',
-				// },
-		}),
 	],
 	devServer: {
 		host: 'localhost',
