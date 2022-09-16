@@ -9,9 +9,9 @@ const Dashboard = ({auth0Token}) => {
 	return (
 		<div>
 			<div>Dashboard Container</div>
-			<Callouts />
-			<Benefits />
-			<CurrentStatus />
+			<Callouts auth0Token={auth0Token} />
+			<Benefits auth0Token={auth0Token} />
+			<CurrentStatus auth0Token={auth0Token} />
 		</div>
 	);
 }
