@@ -1,17 +1,37 @@
 import React from 'react';
 
 import './benefits.css';
-import {CardBase} from "@evive/ui-kit";
+import {CardBase, Grid, TextBody, TextHeader} from "@evive/ui-kit";
 
 const Benefits = () => (
 	<div>
 		<div> Benefits </div>
-		<div className='benefits-card-container'>
-			<CardBase />
-			<CardBase />
-			<CardBase />
-			<CardBase />
-		</div>
+		<Grid colSpan={3}>
+			<CardBase>
+				<div>
+					<TextHeader>Card 1</TextHeader>
+					<TextBody>Description</TextBody>
+				</div>
+			</CardBase>
+			<CardBase>
+				<div>
+					<TextHeader>Card 1</TextHeader>
+					<TextBody>Description</TextBody>
+				</div>
+			</CardBase>
+			<CardBase>
+				<div>
+					<TextHeader>Card 1</TextHeader>
+					<TextBody>Description</TextBody>
+				</div>
+			</CardBase>
+			<CardBase>
+				<div>
+					<TextHeader>Card 1</TextHeader>
+					<TextBody>Description</TextBody>
+				</div>
+			</CardBase>
+		</Grid>
 	</div>
 );
 
