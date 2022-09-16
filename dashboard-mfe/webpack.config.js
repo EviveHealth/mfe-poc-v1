@@ -39,9 +39,11 @@ module.exports = (env) => ({
 			exposes: {
 				'./dashboard': './src/Dashboard.js'
 			},
-			// remotes: {
-			// 	app1: 'app1@http://localhost:3001/remoteEntry.js',
-			// },
+			remotes: {
+				CalloutsRemote: 'Callouts@http://localhost:8082/remoteEntry.js',
+				BenefitsRemote: 'Benefits@http://localhost:8083/remoteEntry.js',
+				CurrentStatusRemote: 'CurrentStatus@http://localhost:8084/remoteEntry.js',
+			},
 			shared: {
 				react: {
 					singleton: true,
