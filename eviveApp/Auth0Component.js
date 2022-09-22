@@ -22,12 +22,12 @@ const Auth0Component = () => {
     }
 
     return (
-        <View style={{flex: 1, marginTop: 32, flexDirection: 'row', justifyContent: 'space-around'}}>
-            <TouchableOpacity onPress={authorise} style={{borderWidth: 1, borderRadius: 3, padding: 8}}>
-                <Text>Open browser</Text>
+        <View style={{flexDirection: 'row', justifyContent: 'space-around', marginVertical: 32}}>
+            <TouchableOpacity onPress={authorise} style={{borderRadius: 8, padding: 16, backgroundColor: '#1763d3'}}>
+                <Text style={{fontSize: 20, color: 'white', fontWeight: '600'}}>Auth0 Authentication</Text>
             </TouchableOpacity>
-            <TouchableOpacity onPress={apiCall} style={{borderWidth: 1, borderRadius: 3, padding: 8}}>
-                <Text>API Check</Text>
+            <TouchableOpacity onPress={apiCall} style={{borderRadius: 8, padding: 16, backgroundColor: '#1763d3'}}>
+                <Text style={{fontSize: 20, color: 'white', fontWeight: '600'}}>API Check</Text>
             </TouchableOpacity>
         </View>
     )
