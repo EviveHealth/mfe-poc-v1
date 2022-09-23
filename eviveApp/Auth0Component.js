@@ -4,7 +4,7 @@ import axios from "axios";
 import {TouchableOpacity, View, Text} from "react-native";
 
 const auth0Component = new Auth0({
-    domain: 'https://myevive-lite-dev.auth0.com',
+    domain: 'https://accounts.dev.evive.io',
     clientId: 'oj2lL0OJ45sS4eKZSSmK00KeI37JqzVS',
 });
 
@@ -14,8 +14,11 @@ const Auth0Component = () => {
     const [accessToken, setAccessToken] = useState();
     const authorise = () => {
         auth0Component.webAuth
-            .authorize({scope: 'openid email profile'})
-            .then(credentials => setAccessToken(credentials.accessToken))
+            .authorize({scope: 'openid email profile', audience: "https://api.testevivecare.com"})
+            .then(credentials => {
+                console.log(JSON.stringify(credentials));
+                setAccessToken(credentials.accessToken);
+            })
             .catch(error => console.log(error));
     }
 
@@ -31,7 +34,7 @@ const Auth0Component = () => {
             }
         }
         try {
-            const apiResponse = await api.get("https://pc.dev.myevive.me/planchoice/api/user-dependents/user-flow-details", config)
+            const apiResponse = await api.get("https://pc.dev.myevive.me/planchoice/api/user-dependents/user-flow-details?planType=MEDICAL", config)
             console.log(apiResponse);
         }
         catch (e) {
