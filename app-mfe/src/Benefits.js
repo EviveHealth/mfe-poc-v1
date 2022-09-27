@@ -22,7 +22,7 @@ const Benefits = () => {
 			if (apiData) {
 				return JSON.stringify(apiData.data);
 			}
-			return 'No Data';
+			return '';
 		}, [apiData],
 	);
 
@@ -50,10 +50,9 @@ const Benefits = () => {
 	}
 
 	return (
-		<div>
-			<div>Benefits</div>
+		<div style={{marginTop: 16}}>
 			{/*<div>{JSON.stringify(parsedUrl.query.token)}</div>*/}
-			<div>{displayData}</div>
+			{displayData && <div>{displayData}</div>}
 			<Grid container>
 				<Grid colSpan={3}>
 					<CardBase>
@@ -66,29 +65,15 @@ const Benefits = () => {
 				<Grid colSpan={3}>
 					<CardBase>
 						<div>
-							<TextHeader>Card 1</TextHeader>
-							<TextBody>Description</TextBody>
-						</div>
-					</CardBase>
-				</Grid>
-				<Grid colSpan={3}>
-					<CardBase>
-						<div>
-							<TextHeader>Card 1</TextHeader>
-							<TextBody>Description</TextBody>
-						</div>
-					</CardBase>
-				</Grid>
-				<Grid colSpan={3}>
-					<CardBase>
-						<div>
-							<TextHeader>Card 1</TextHeader>
+							<TextHeader>Card 2</TextHeader>
 							<TextBody>Description</TextBody>
 						</div>
 					</CardBase>
 				</Grid>
 			</Grid>
-			<Button onClickHandler={apiCall}>API CALL</Button>
+			<div style={{marginTop: 16}}>
+				<Button small onClickHandler={apiCall}>API CALL</Button>
+			</div>
 		</div>
 	);
 }

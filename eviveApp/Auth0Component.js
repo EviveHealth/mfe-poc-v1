@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import React, {useCallback, useEffect, useState} from "react";
 import Auth0 from 'react-native-auth0';
 import axios from "axios";
 import {TouchableOpacity, View, Text} from "react-native";
@@ -10,24 +10,31 @@ const auth0Component = new Auth0({
 
 const api = axios.create({});
 
-const Auth0Component = ({setToken}) => {
+const Auth0Component = ({getAccessToken}) => {
     const [accessToken, setAccessToken] = useState();
     const authorise = () => {
         auth0Component.webAuth
             .authorize({scope: 'openid email profile', audience: "https://api.testevivecare.com"})
             .then(credentials => {
-                console.log('Access Token from auth component', JSON.stringify(credentials.accessToken));
+                console.log('Access Token', JSON.stringify(credentials.accessToken));
                 setAccessToken(credentials.accessToken);
             })
             .catch(error => console.log(error));
     }
+
+    useEffect(
+        () => {
+            getAccessToken(accessToken);
+            console.log('Token value set from auth0', accessToken);
+        }, [accessToken],
+    )
 
     const apiCall = async () => {
         // console.log('Api before', typeof(api));
         console.log('Token', accessToken);
         // api.defaults.headers.common = {'Authorization': `Bearer ${accessToken}`}
         // console.log('Api after', api);
-        setToken(accessToken);
+        setAccessToken(accessToken);
         let config = {
             headers: {
                 'Content-Type': 'application/json',
@@ -49,9 +56,6 @@ const Auth0Component = ({setToken}) => {
         <View style={{flexDirection: 'row', justifyContent: 'space-around', marginVertical: 32}}>
             <TouchableOpacity onPress={authorise} style={{borderRadius: 8, padding: 16, backgroundColor: '#1763d3'}}>
                 <Text style={{fontSize: 20, color: 'white', fontWeight: '600'}}>Auth0 Authentication</Text>
-            </TouchableOpacity>
-            <TouchableOpacity onPress={setToken(accessToken)} style={{borderRadius: 8, padding: 16, backgroundColor: '#1763d3'}}>
-                <Text style={{fontSize: 20, color: 'white', fontWeight: '600'}}>Pass Token</Text>
             </TouchableOpacity>
         </View>
     )
